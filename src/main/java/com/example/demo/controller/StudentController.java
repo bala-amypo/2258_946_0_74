@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,13 +18,12 @@ public class StudentController {
     StudentService ssr;
 
     @PostMapping("/adddata")
-    public Student createDate(@RequestBody Student stu){
-        return  ssr.createData(stu);
+    public Student createData(@RequestBody Student stu) {
+        return ssr.createData(stu);
     }
 
     @GetMapping("/getdata")
-    
-    public Student fetchRecord(){
+    public List<Student> fetchRecord() {   // ✅ FIXED
         return ssr.fetchRecord();
     }
 }
