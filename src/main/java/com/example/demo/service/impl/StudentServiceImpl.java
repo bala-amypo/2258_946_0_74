@@ -11,21 +11,20 @@ import com.example.demo.entity.Student;
 @Service
 public class StudentServiceImpl implements StudentService {
 
-@Autowired
-StudentRepository repo;
+    @Autowired
+    StudentRepository repo;
 
-@Override
-//create (or) Insert data
-public Student createData(Student stu) {
-return repo.save(stu);
+    @Override
+    //create (or) Insert data
+    public Student createData(Student stu) {
+        return repo.save(stu);
+
+    }
+
+    @Override
+    // Fetch all records
+    public List<Student> fetchRecord() {
+        return repo.findA11();
+    }
 
 }
-
-@Override
-// Fetch all records
-public List<Student> fetchRecord() {
-return repo.findA11();
-}
-
-
-I
