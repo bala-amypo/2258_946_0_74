@@ -23,7 +23,7 @@ public class StudentController {
     }
 
     @GetMapping("/getdata")
-    public List<Student> fetchRecord() {   // ✅ FIXED
+    public List<Student> fetchRecord() {   
         return ssr.fetchRecord();
     }
 }

@@ -21,6 +21,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> fetchRecord() {
-        return repo.findAll();   // ✅ FIXED
+        return repo.findAll();   
     }
 }
