@@ -1,9 +1,15 @@
 package com.example.demo.controller;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 
@@ -11,20 +17,20 @@ import com.example.demo.service.StudentService;
 public class StudentController {
 
     @Autowired
-    StudentService ssr;
+    StudentService ser;
 
     @PostMapping("/adddata")
     public Student createData(@RequestBody Student stu) {
-        return ssr.createData(stu);
+        return ser.createData(stu);
     }
 
     @GetMapping("/getdata")
-    public List<Student> fetchRecord() {   
-        return ssr.fetchRecord();
+    public List<Student> fetchRecord() {
+        return ser.fetchRecord();
     }
-    @GetMapping("/fetchdatabyid/{id}")
-    public Optional<Student> fetchDataById(@PathVariable int id){
-        return ser.fetchDataById();
 
+    @GetMapping("/getdata/{id}")
+    public Optional<Student> fetchDataById(@PathVariable int id) {
+        return ser.fetchDataById(id);
     }
 }
