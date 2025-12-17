@@ -15,7 +15,7 @@ public class StudentServiceImpl implements StudentService {
     StudentRepository repo;
 
     @Override
-    @
+    
     public Student createData(Student stu) {
         return repo.save(stu);
     }
@@ -23,5 +23,8 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> fetchRecord() {
         return repo.findAll();   
+    }
+    @public Optional<Student> fetchDataById(int id){
+        
     }
 }
