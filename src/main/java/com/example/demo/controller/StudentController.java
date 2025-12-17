@@ -20,7 +20,8 @@ public class StudentController {
         return  ssr.createData(stu);
     }
 
-    @GetMapping
+    @GetMapping("/getdata")
+    
     public Student fetchRecord(){
         return ssr.fetchRecord();
     }
