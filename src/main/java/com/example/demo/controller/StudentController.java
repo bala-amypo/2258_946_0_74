@@ -1,1 +1,3 @@
-import com.example.demo.controller.StudentController;
+import com.example.demo.controller;
+import
+@RestController
