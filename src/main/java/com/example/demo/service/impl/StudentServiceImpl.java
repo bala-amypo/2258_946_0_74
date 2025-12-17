@@ -25,7 +25,7 @@ public class StudentServiceImpl implements StudentService {
         return repo.findAll();   
     }
     @Override
-    @public Optional<Student> fetchDataById(int id){
+    public Optional<Student> fetchDataById(int id){
         return repo.fetchDataById(id);
     }
 }
