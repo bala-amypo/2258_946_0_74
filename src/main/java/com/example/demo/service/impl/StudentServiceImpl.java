@@ -1,16 +1,14 @@
-package com.example.demo.service;
-
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+package com.example.demo.service.implementation;
+import java.util.*;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
+import com.example.demo.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
 
 @Service
-public class StudentServiceImpl implements StudentService {
+public class StuServiceImpl implements StudentService{
 
     @Autowired
     StudentRepository repo;
@@ -26,12 +24,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
    @Override
-    public Optional<Student> fetchDataById(Long id){
+    public Optional<Student> fetchDataById(int id){
         return repo.findById(id);
     }
 
     @Override
-    public void deleteData(Long id){
-         repo.deleteById(id);
+    public void deleteData(int id){
+         repo.deleteById(id); 
     }
 }

@@ -4,54 +4,63 @@ import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 
 @RestController
-@RequestMapping("/student")
 public class StudentController {
-
+    
     @Autowired
     StudentService ser;
-
-    @PostMapping("/add")
-    public Student createData(@RequestBody Student stu) {
+    
+    @PostMapping("/adddata")
+    public Student createData(@RequestBody Student stu){
         return ser.createData(stu);
     }
 
-    @GetMapping("/getall")
-    public List<Student> fetchAll() {
+    @GetMapping("/fetche")
+    public List<Student> fetchRecord(){
         return ser.fetchRecord();
     }
 
-    @GetMapping("/get/{id}")
-    public Optional<Student> fetchById(@PathVariable Long id) {
+    @GetMapping("/fetchdatabyid/{id}")
+    public Optional<Student> fetchDataById(@PathVariable int id){
         return ser.fetchDataById(id);
+
     }
 
     @PutMapping("/updatedata/{id}")
-    public String updateDataById(@PathVariable Long id, @RequestBody Student stu) {
-        Optional<Student> student = ser.fetchDataById(id);
+    public String updateDataById(@PathVariable int id,@RequestBody Student stu){
+    Optional<Student> student = ser.fetchDataById(id);
 
-        if (student.isPresent()) {
-            stu.setId(id);   // important for update
-            ser.createData(stu);
-            return "Data Updated Successfully";
-        } else {
-            return id + " not found";
-        }
+    if(student.isPresent()){
+     stu.setId(id);
+     ser.createData( stu);
+
+     return "Data Updated Successfully";
+    }
+    else{
+
+        return id+ "not found";
+    }
+
     }
 
     @DeleteMapping("/deletedata/{id}")
-    public String deleteDataById(@PathVariable Long id) {
-        Optional<Student> student = ser.fetchDataById(id);
-
-        if (student.isPresent()) {
-            ser.deleteData(id);
-            return "Data deleted Successfully";
-        } else {
-            return id + " not found";
-        }
+    public String deleteDataById(@PathVariable int id){
+    Optional<Student> student = ser.fetchDataById(id);
+    if(student.isPresent()){
+     ser.deleteData(id);
+     return "Data deleted Successfully";
     }
+    else{
+        return id + "not found";
+    }
+
+
+
+    }
+
 }
