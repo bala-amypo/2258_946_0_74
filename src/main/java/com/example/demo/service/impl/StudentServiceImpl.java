@@ -16,21 +16,22 @@ public class StudentServiceImpl implements StudentService {
     StudentRepository repo;
 
     @Override
-    public Student createData(Student stu) {
+    public Student createData(Student stu){
         return repo.save(stu);
     }
 
     @Override
-    public List<Student> fetchRecord() {
+    public List<Student> fetchRecord(){
         return repo.findAll();
     }
 
-    @Override
-    public Optional<Student> fetchDataById(Long id) {
-        return repo.findById(id);  
+   @Override
+    public Optional<Student> fetchDataById(int id){
+        return repo.findById(id);
     }
+
     @Override
-    public void deleteData(Long id){
-        repo.deleteById(id);
-    }
+    public void deleteData(int id){
+         repo.deleteById(id); 
+    }
 }
