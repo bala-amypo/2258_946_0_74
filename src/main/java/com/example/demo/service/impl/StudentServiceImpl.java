@@ -26,12 +26,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
    @Override
-    public Optional<Student> fetchDataById(int id){
+    public Optional<Student> fetchDataById(Long id){
         return repo.findById(id);
     }
 
     @Override
-    public void deleteData(int id){
-         repo.deleteById(id); 
-    }
+    public void deleteData(Long id){
+         repo.deleteById(id);
+    }
 }
