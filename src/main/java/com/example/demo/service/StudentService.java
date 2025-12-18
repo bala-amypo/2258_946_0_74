@@ -9,4 +9,5 @@ public interface StudentService {
 
     List<Student> fetchRecord();
     Optional<Student>fetchDataById(Long id);
+    void deleteData(Long id);
 }

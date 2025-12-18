@@ -30,4 +30,8 @@ public class StudentController {
     public Optional<Student> fetchById(@PathVariable Long id) {
         return ser.fetchDataById(id);
     }
+    @PutMapping("updatedata/{id}")
+    public String deleteDataById(@PathVariable Long id,RequestBody Student stu){
+        return ser.
+    }
 }
