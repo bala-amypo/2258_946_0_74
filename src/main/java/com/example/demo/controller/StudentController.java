@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +44,11 @@ public class StudentController {
     @DeleteMapping("/deletedata/{id}")
     public String deleteDataBy(@PathVaraiable Long id){
         if(student.isPresent()){
-            ser.delete
+            ser.deleteData(id);
+            return "Data deleted Successfully";
+        }
+        else{
+            return id+"not found";
         }
     }
 }
